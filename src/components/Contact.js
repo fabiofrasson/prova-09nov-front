@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import ContactService from "../services/ContactService";
 
 const Contact = (props) => {
   const { id } = useParams();
+  const history = useNavigate();
 
   const initialContactState = {
     id: null,
@@ -40,7 +42,7 @@ const Contact = (props) => {
       .then((response) => {
         console.log(response.data);
         setMessage("The contact was updated successfully!");
-        props.history.push("/contacts");
+        history("/contacts");
       })
       .catch((e) => {
         console.log(e);
@@ -51,7 +53,7 @@ const Contact = (props) => {
     ContactService.remove(currentContact.id)
       .then((response) => {
         console.log(response.data);
-        props.history.push("/contacts");
+        history("/contacts");
       })
       .catch((e) => {
         console.log(e);
@@ -99,13 +101,13 @@ const Contact = (props) => {
             </div>
           </form>
 
-          <button className="badge badge-danger mr-2" onClick={deleteContact}>
+          <button className="btn btn-danger mr-2" onClick={deleteContact}>
             Delete
           </button>
 
           <button
             type="submit"
-            className="badge badge-success"
+            className="btn btn-success"
             onClick={updateContact}
           >
             Update

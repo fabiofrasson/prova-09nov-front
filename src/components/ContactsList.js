@@ -132,7 +132,7 @@ const ContactsList = () => {
             </div>
             <Link
               to={"/contacts/" + currentContact.id}
-              className="badge badge-warning"
+              className="btn btn-warning"
             >
               Edit
             </Link>
