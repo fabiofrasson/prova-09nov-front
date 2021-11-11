@@ -5,12 +5,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import ContactsList from "./components/ContactsList";
 import AddContact from "./components/AddContact";
 import Contact from "./components/Contact";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <a href="/contacts" className="navbar-brand">
+        <a href="/" className="navbar-brand">
           Contacts App
         </a>
         <div className="navbar-nav mr-auto">
@@ -29,6 +30,7 @@ function App() {
 
       <div className="container mt-3">
         <Routes>
+          <Route exact path={"/"} element={<Home />} />
           <Route exact path={"/contacts"} element={<ContactsList />} />
           <Route exact path={"/add"} element={<AddContact />} />
           <Route path={"/contacts/:id"} element={<Contact />} />

@@ -50,8 +50,8 @@ const ContactsList = () => {
       });
   };
 
-  const findByEmail = () => {
-    ContactService.findByEmail(searchTitle)
+  const findByName = () => {
+    ContactService.findByName(searchTitle)
       .then((response) => {
         setContacts(response.data);
         console.log(response.data);
@@ -68,15 +68,15 @@ const ContactsList = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Search by email"
+            placeholder="Search by name"
             value={searchTitle}
             onChange={onChangeSearchTitle}
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn btn-outline-success"
               type="button"
-              onClick={findByEmail}
+              onClick={findByName}
             >
               Search
             </button>

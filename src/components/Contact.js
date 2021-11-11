@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import ContactService from "../services/ContactService";
 
-const Contact = (props) => {
+const Contact = () => {
   const { id } = useParams();
   const history = useNavigate();
 
@@ -97,21 +97,33 @@ const Contact = (props) => {
                 name="phoneNumber"
                 value={currentContact.phoneNumber}
                 onChange={handleInputChange}
+                style={{ marginBottom: 10 }}
               />
             </div>
           </form>
 
-          <button className="btn btn-danger mr-2" onClick={deleteContact}>
-            Delete
-          </button>
+          <div className="d-flex flex-column justify-content-center">
+            <button
+              style={{ marginBottom: 10 }}
+              type="submit"
+              className="btn btn-success"
+              onClick={updateContact}
+            >
+              Update Data
+            </button>
 
-          <button
-            type="submit"
-            className="btn btn-success"
-            onClick={updateContact}
-          >
-            Update
-          </button>
+            <button
+              style={{ marginBottom: 10 }}
+              className="btn btn-danger mr-2"
+              onClick={deleteContact}
+            >
+              Delete Contact
+            </button>
+
+            <Link to={"/contacts"} className="btn btn-primary">
+              Back to Home
+            </Link>
+          </div>
           <p>{message}</p>
         </div>
       ) : (

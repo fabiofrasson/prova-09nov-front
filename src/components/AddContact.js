@@ -95,15 +95,22 @@ const AddContact = () => {
               value={contact.phoneNumber}
               onChange={handleInputChange}
               name="phoneNumber"
+              style={{ marginBottom: 10 }}
             />
           </div>
 
-          <button className="btn btn-success" onClick={saveContact}>
-            Submit
-          </button>
-          <Link to={"/contacts"} className="btn btn-success">
-            Back to Home
-          </Link>
+          <div className="d-flex flex-column justify-content-center">
+            <button
+              style={{ marginBottom: 10 }}
+              className="btn btn-success"
+              onClick={saveContact}
+            >
+              Submit
+            </button>
+            <Link to={"/contacts"} className="btn btn-primary">
+              Back to Home
+            </Link>
+          </div>
         </div>
       )}
     </div>

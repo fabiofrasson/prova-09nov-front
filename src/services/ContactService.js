@@ -24,12 +24,8 @@ const removeAll = () => {
   return http.delete("/contacts");
 };
 
-const findByEmail = (email) => {
-  return http.get(`/contacts/email/${email}`);
-};
-
-const findByPhone = (phone) => {
-  return http.get(`/contacts/phone/${phone}`);
+const findByName = (name) => {
+  return http.get(`/contacts/search/?name=${name}`);
 };
 
 // eslint-disable-next-line
@@ -40,6 +36,5 @@ export default {
   update,
   remove,
   removeAll,
-  findByEmail,
-  findByPhone,
+  findByName,
 };
