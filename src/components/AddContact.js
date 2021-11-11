@@ -11,6 +11,7 @@ const AddContact = () => {
   };
   const [contact, setContact] = useState(initialContactState);
   const [submitted, setSubmitted] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
