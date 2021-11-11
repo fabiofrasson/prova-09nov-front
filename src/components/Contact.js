@@ -121,7 +121,7 @@ const Contact = () => {
             </button>
 
             <Link to={"/contacts"} className="btn btn-primary">
-              Back to Home
+              Back to Contacts
             </Link>
           </div>
           <p>{message}</p>
