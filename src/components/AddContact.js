@@ -49,7 +49,7 @@ const AddContact = () => {
     <div className="submit-form">
       {submitted ? (
         <div>
-          <h4>You submitted successfully!</h4>
+          <h4>Contact added successfully!</h4>
           <button className="btn btn-success" onClick={newContact}>
             Add one more contact
           </button>
@@ -101,6 +101,9 @@ const AddContact = () => {
           <button className="btn btn-success" onClick={saveContact}>
             Submit
           </button>
+          <Link to={"/contacts"} className="btn btn-success">
+            Back to Home
+          </Link>
         </div>
       )}
     </div>

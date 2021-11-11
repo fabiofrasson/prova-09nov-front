@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import ContactService from "../services/ContactService";
 
 const Contact = (props) => {
+  const { id } = useParams();
+
   const initialContactState = {
     id: null,
     name: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
   };
 
   const [currentContact, setCurrentContact] = useState(initialContactState);
@@ -24,8 +27,8 @@ const Contact = (props) => {
   };
 
   useEffect(() => {
-    getContact(props.match.params.id);
-  }, [props.match.params.id]);
+    getContact(id);
+  }, [id]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,6 +40,7 @@ const Contact = (props) => {
       .then((response) => {
         console.log(response.data);
         setMessage("The contact was updated successfully!");
+        props.history.push("/contacts");
       })
       .catch((e) => {
         console.log(e);
@@ -66,6 +70,7 @@ const Contact = (props) => {
                 type="text"
                 className="form-control"
                 id="name"
+                name="name"
                 value={currentContact.name}
                 onChange={handleInputChange}
               />
@@ -76,17 +81,19 @@ const Contact = (props) => {
                 type="text"
                 className="form-control"
                 id="email"
+                name="email"
                 value={currentContact.email}
                 onChange={handleInputChange}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Phone number</label>
+              <label htmlFor="phoneNumber">Phone number</label>
               <input
                 type="text"
                 className="form-control"
-                id="phone"
-                value={currentContact.phone}
+                id="phoneNumber"
+                name="phoneNumber"
+                value={currentContact.phoneNumber}
                 onChange={handleInputChange}
               />
             </div>

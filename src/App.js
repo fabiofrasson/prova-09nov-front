@@ -11,7 +11,7 @@ function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <a href="/contacts" className="navbar-brand">
-          Prova 09Nov
+          Contacts App
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -29,7 +29,7 @@ function App() {
 
       <div className="container mt-3">
         <Routes>
-          <Route exact path={"/contacts/"} element={<ContactsList />} />
+          <Route exact path={"/contacts"} element={<ContactsList />} />
           <Route exact path={"/add"} element={<AddContact />} />
           <Route path={"/contacts/:id"} element={<Contact />} />
         </Routes>
