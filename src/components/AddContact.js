@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ContactService from "../services/ContactService";
+import { Link } from "react-router-dom";
 
 const AddContact = () => {
   const initialContactState = {
@@ -20,7 +21,7 @@ const AddContact = () => {
     var data = {
       name: contact.name,
       email: contact.email,
-      phone: contact.phone,
+      phoneNumber: contact.phoneNumber,
     };
 
     ContactService.create(data)
@@ -29,7 +30,7 @@ const AddContact = () => {
           id: response.data.id,
           name: response.data.name,
           email: response.data.email,
-          phone: response.data.phone,
+          phoneNumber: response.data.phoneNumber,
         });
         setSubmitted(true);
         console.log(response.data);
@@ -50,8 +51,11 @@ const AddContact = () => {
         <div>
           <h4>You submitted successfully!</h4>
           <button className="btn btn-success" onClick={newContact}>
-            Add
+            Add one more contact
           </button>
+          <Link to={"/contacts"} className="btn btn-success">
+            Back to Home
+          </Link>
         </div>
       ) : (
         <div>
@@ -82,15 +86,15 @@ const AddContact = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+            <label htmlFor="phoneNumber">Phone Number</label>
             <input
               type="text"
               className="form-control"
-              id="phone"
+              id="phoneNumber"
               required
-              value={contact.phone}
+              value={contact.phoneNumber}
               onChange={handleInputChange}
-              name="phone"
+              name="phoneNumber"
             />
           </div>
 

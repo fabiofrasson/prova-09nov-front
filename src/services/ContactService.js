@@ -5,7 +5,7 @@ const getAll = () => {
 };
 
 const get = (id) => {
-  return http.get("/contacts/${id}");
+  return http.get(`/contacts/id/${id}`);
 };
 
 const create = (data) => {
@@ -13,11 +13,11 @@ const create = (data) => {
 };
 
 const update = (id, data) => {
-  return http.put("/contacts/${id}", data);
+  return http.put(`/contacts/id/${id}`, data);
 };
 
 const remove = (id) => {
-  return http.delete("/contacts");
+  return http.delete(`/contacts/id/${id}`);
 };
 
 const removeAll = () => {
@@ -25,19 +25,21 @@ const removeAll = () => {
 };
 
 const findByEmail = (email) => {
-  return http.get("/contacts/email/${email}");
+  return http.get(`/contacts/email/${email}`);
 };
 
 const findByPhone = (phone) => {
-  return http.get("/contacts/phone/${phone}");
+  return http.get(`/contacts/phone/${phone}`);
 };
 
+// eslint-disable-next-line
 export default {
   getAll,
   get,
   create,
   update,
   remove,
+  removeAll,
   findByEmail,
   findByPhone,
 };

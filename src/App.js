@@ -29,9 +29,9 @@ function App() {
 
       <div className="container mt-3">
         <Routes>
-          <Route exact path={"/contacts"} component={ContactsList} />
-          <Route exact path={"/add"} component={AddContact} />
-          <Route path={"/contacts/:id"} component={Contact} />
+          <Route exact path={"/contacts/"} element={<ContactsList />} />
+          <Route exact path={"/add"} element={<AddContact />} />
+          <Route path={"/contacts/:id"} element={<Contact />} />
         </Routes>
       </div>
     </div>

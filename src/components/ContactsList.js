@@ -88,7 +88,7 @@ const ContactsList = () => {
 
         <ul className="list-group">
           {contacts &&
-            contacts.map((contact, index) => {
+            contacts.map((contact, index) => (
               <li
                 className={
                   "list-group-item " + (index === currentIndex ? "active" : "")
@@ -97,8 +97,8 @@ const ContactsList = () => {
                 key={index}
               >
                 {contact.name}
-              </li>;
-            })}
+              </li>
+            ))}
         </ul>
 
         <button
@@ -109,7 +109,40 @@ const ContactsList = () => {
         </button>
       </div>
       <div className="col-md-6">
-       
+        {currentContact ? (
+          <div>
+            <h4>Contact</h4>
+            <div>
+              <label htmlFor="">
+                <strong>Name:</strong>
+              </label>{" "}
+              {currentContact.name}
+            </div>
+            <div>
+              <label htmlFor="">
+                <strong>Email:</strong>
+              </label>{" "}
+              {currentContact.email}
+            </div>
+            <div>
+              <label htmlFor="">
+                <strong>Phone number:</strong>
+              </label>{" "}
+              {currentContact.phoneNumber}
+            </div>
+            <Link
+              to={"/contacts/" + currentContact.id}
+              className="badge badge-warning"
+            >
+              Edit
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <br />
+            <p>Please click on a Contact...</p>
+          </div>
+        )}
       </div>
     </div>
   );
